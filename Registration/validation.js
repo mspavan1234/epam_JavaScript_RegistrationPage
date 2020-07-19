@@ -11,10 +11,9 @@ function validateForm() {
     var conPassword =  document.registerForm.cpwd.value;
     var mobile =  document.registerForm.mobileno.value;
     var gender =  document.registerForm.genderOp.value;
-    var agreed = document.registerForm.agreement.value;
     
 	// Defining error variables with a default value
-    var fnameErr = emailErr = mobileErr = genderErr = lnameErr = pwdErr = cpwdErr = dobErr = agreeErr = true;
+    var fnameErr = emailErr = mobileErr = genderErr = lnameErr = pwdErr = cpwdErr = dobErr = true;
     
     // Validate name
     if(firstname == "") {
@@ -86,7 +85,7 @@ function validateForm() {
     }
     
     // Validate gender
-    if(gender == "Select") {
+    if(gender == "") {
         printError("genderErr", "Please select your gender");
     } else {
         printError("genderErr", "");
@@ -100,18 +99,6 @@ function validateForm() {
     else {
         printError("dobErr", "");
         dobErr = false;
-    }
-    //Validate checkBox
-    if(agreed.checked==false){
-        printError("agreeErr","Please agree the terms and conditions");
-    }else{
-        if(agreed.checked){
-            printError("agreeErr","");
-            agreeErr = false;
-        }
-        else{
-            printError("agreeErr","Please agree the terms and conditions");
-        }
     }
 
     // Prevent the form from being submitted if there are any errors
